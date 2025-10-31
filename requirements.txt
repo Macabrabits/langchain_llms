@@ -1,0 +1,11 @@
+firecrawl-py
+langchain
+langchain-community
+chromadb
+sentence-transformers
+unstructured
+libmagic
+tf-keras
+openai
+python-dotenv
+python-magic-bin
