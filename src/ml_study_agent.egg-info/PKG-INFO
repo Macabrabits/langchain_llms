@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: ml-study-agent
+Version: 0.1.0
+Summary: RAG-based agent for ML study materials
+Requires-Python: >=3.9
+Requires-Dist: firecrawl-py
+Requires-Dist: langchain
+Requires-Dist: langchain-community
+Requires-Dist: langchain-chroma
+Requires-Dist: langchain-huggingface
+Requires-Dist: langchain-text-splitters
+Requires-Dist: chromadb
+Requires-Dist: sentence-transformers
+Requires-Dist: torch>=2.0
+Requires-Dist: unstructured
+Requires-Dist: libmagic
+Requires-Dist: tf-keras
+Requires-Dist: openai
+Requires-Dist: python-dotenv
+Requires-Dist: python-magic-bin
+Requires-Dist: langchain-ollama>=0.3.10
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+Requires-Dist: black; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Requires-Dist: mypy; extra == "dev"

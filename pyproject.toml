@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["agent"]
+
+[project]
+name = "ml-study-agent"
+version = "0.1.0"
+description = "RAG-based agent for ML study materials"
+requires-python = ">=3.9"
+dependencies = [
+    "firecrawl-py",
+    "langchain",
+    "langchain-community",
+    "langchain-chroma",
+    "langchain-huggingface",
+    "langchain-text-splitters",
+    "chromadb",
+    "sentence-transformers",
+    "torch>=2.0",
+    "unstructured",
+    "libmagic",
+    "tf-keras",
+    "openai",
+    "python-dotenv",
+    "python-magic-bin",
+    "langchain-ollama>=0.3.10",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov",
+    "black",
+    "ruff",
+    "mypy",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov",
+    "black",
+    "ruff",
+    "mypy",
+]

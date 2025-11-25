@@ -5,6 +5,7 @@ from langchain_chroma import Chroma  # Updated import
 from langchain_huggingface import HuggingFaceEmbeddings  # Updated import
 import torch
 import dotenv
+import os
 dotenv.load_dotenv()
 
 # Check GPU availability
@@ -13,8 +14,14 @@ if torch.cuda.is_available():
     print(f"🎮 GPU: {torch.cuda.get_device_name(0)}")
     print(f"🎮 CUDA version: {torch.version.cuda}")
 
+# Get the project root directory
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_DIR = os.path.join(PROJECT_ROOT, "data")
+CHROMA_DB_DIR = os.path.join(DATA_DIR, "chroma_db")
+MARKDOWNS_DIR = os.path.join(DATA_DIR, "markdowns")
+
 # Carregar markdowns
-loader = DirectoryLoader("markdowns", glob="**/*.md")
+loader = DirectoryLoader(MARKDOWNS_DIR, glob="**/*.md")
 docs = loader.load()
 
 print(f"📄 Loaded {len(docs)} documents")
@@ -36,11 +43,11 @@ print(f"🔄 Creating vector database on GPU...")
 db = Chroma.from_documents(
     documents=chunks,
     embedding=embeddings,
-    persist_directory="./chroma_db",
+    persist_directory=CHROMA_DB_DIR,
     collection_name="example_collection"
 )
 
-print(f"✅ Base vetorial criada em ./chroma_db")
+print(f"✅ Base vetorial criada em {CHROMA_DB_DIR}")
 print(f"📊 Total de {db._collection.count()} documentos no banco")
 
 
